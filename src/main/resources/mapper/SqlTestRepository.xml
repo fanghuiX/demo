@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace用于绑定Dao接口 -->
+<mapper namespace="com.example.demo.repository.SqlTestRepository">
+    <!-- 用用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.repository.entity.user" >
+        <!-- column代表数据库列名，property代表实体类属性名 -->
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
+    <!-- 查询名字记录sql -->
+    <select id="selectById" parameterType="String" resultMap="BaseResultMap">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+</mapper>
