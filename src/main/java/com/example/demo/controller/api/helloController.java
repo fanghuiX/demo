@@ -1,5 +1,6 @@
 package com.example.demo.controller.api;
 
+import com.example.demo.service.helloService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.demo.service.helloService;
 
 @Api(description = "TEST接口",value = "HELLO接口",tags = {"HELLO_TEST接口"})
 @RestController

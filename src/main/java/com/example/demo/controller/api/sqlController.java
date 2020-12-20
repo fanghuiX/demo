@@ -21,9 +21,9 @@ public class sqlController {
 
     @ApiOperation(value = "这只是一个测试Swagger",notes = "TEST SWAGGER")
     @RequestMapping(value = "/sql", method = RequestMethod.GET)
-    public String getTest(
+    public user getTest(
             @RequestParam(value = "id", required = false, defaultValue = "1") String id
     ) {
-        return sqlService.getSql(id).name;
+        return sqlService.getSql(id);
     }
 }

@@ -28,8 +28,8 @@ public class TestRedis {
 
     @Test
     public void test() throws Exception {
-        stringRedisTemplate.opsForValue().set("aaa", "111");
-        Assert.assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
+        stringRedisTemplate.opsForValue().set("aaa", "1111111");
+        Assert.assertEquals("1111111", stringRedisTemplate.opsForValue().get("aaa"));
     }
 
     @Test
@@ -37,7 +37,7 @@ public class TestRedis {
         User user=new User("aa@126.com", "aa");
         ValueOperations<String, User> operations=redisTemplate.opsForValue();
         operations.set("com.neox", user);
-        operations.set("com.neo.f", user,1, TimeUnit.SECONDS);
+        operations.set("com.neo.f", user,10, TimeUnit.MINUTES);
         Thread.sleep(1000);
         //redisTemplate.delete("com.neo.f");
         boolean exists=redisTemplate.hasKey("com.neo.f");
