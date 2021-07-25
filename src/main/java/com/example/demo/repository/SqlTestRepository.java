@@ -4,5 +4,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface SqlTestRepository {
-    public user selectById(String id);
+    user selectById(String id);
 }
