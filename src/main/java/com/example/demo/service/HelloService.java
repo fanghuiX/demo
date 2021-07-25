@@ -1,5 +1,5 @@
 package com.example.demo.service;
 
-public interface helloService {
+public interface HelloService {
     String getTest(String type);
 }

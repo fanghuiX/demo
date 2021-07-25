@@ -1,10 +1,10 @@
 package com.example.demo.service.impl;
-import com.example.demo.service.helloService;
+import com.example.demo.service.HelloService;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class helloServiceImpl implements helloService {
+public class HelloServiceImpl implements HelloService {
 
     @Cacheable(value = "user", key = "#type")
     public String getTest(String type) {

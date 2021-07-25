@@ -1,6 +1,6 @@
 package com.example.demo.controller.api;
 
-import com.example.demo.service.helloService;
+import com.example.demo.service.HelloService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(description = "TEST接口",value = "HELLO接口",tags = {"HELLO_TEST接口"})
 @RestController
 @RequestMapping("/v1")
-public class helloController {
+public class HelloController {
 
     @Autowired
-    private helloService helloService;
+    private HelloService helloService;
 
     @ApiOperation(value = "这只是一个测试Swagger",notes = "TEST SWAGGER")
     @RequestMapping(value = "/test", method = RequestMethod.GET)

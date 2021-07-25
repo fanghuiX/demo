@@ -3,13 +3,13 @@
 <!-- namespace用于绑定Dao接口 -->
 <mapper namespace="com.example.demo.repository.SqlTestRepository">
     <!-- 用用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.example.demo.repository.entity.user" >
+    <resultMap id="BaseResultMap" type="com.example.demo.repository.entity.User" >
         <!-- column代表数据库列名，property代表实体类属性名 -->
         <result column="id" property="id"/>
         <result column="name" property="name"/>
     </resultMap>
     <!-- 查询名字记录sql -->
-    <select id="selectById" parameterType="String" resultMap="BaseResultMap">
+    <select id="selectById" parameterType="Long" resultMap="BaseResultMap">
         SELECT * FROM user WHERE id = #{id}
     </select>
 </mapper>

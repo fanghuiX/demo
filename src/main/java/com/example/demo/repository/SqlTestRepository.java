@@ -1,8 +1,12 @@
 package com.example.demo.repository;
-import com.example.demo.repository.entity.user;
+import com.example.demo.repository.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 @Mapper
+@Component
 public interface SqlTestRepository {
-    user selectById(String id);
+
+    User selectById(Long id);
+
 }
