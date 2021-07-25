@@ -1,7 +1,12 @@
 package com.example.demo.service;
 
-import com.example.demo.repository.entity.user;
+import com.example.demo.repository.entity.User;
 
-public interface sqlService {
-    user getSql(String id);
+public interface SqlService {
+
+    User getSql(Long id);
+
+    User getUser(Long id);
+
+    Long getCount(Long id);
 }
