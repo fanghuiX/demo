@@ -12,6 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * 整合swagger2
+ * http://localhost:8080/swagger-ui.html#/demo-controller
  */
 @Configuration
 @EnableSwagger2
