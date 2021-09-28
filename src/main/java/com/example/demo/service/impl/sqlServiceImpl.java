@@ -2,10 +2,12 @@ package com.example.demo.service.impl;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.entity.User;
 import com.example.demo.service.SqlService;
+import com.github.benmanes.caffeine.cache.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.example.demo.repository.SqlTestRepository;
+import org.springframework.util.ObjectUtils;
 
 import java.util.Optional;
 
@@ -18,13 +20,34 @@ public class SqlServiceImpl implements SqlService {
     @Autowired
     private UserRepository userRepository;
 
-    @Cacheable(value = "sql", key = "#root.methodName + ':' + #id")
+    @Autowired
+    Cache<String, Object> caffeineCache;
+
+    // @Cacheable(value = "sql", key = "#root.methodName + ':' + #id")
     public User getSql(Long id) {
+        User user = (User) caffeineCache.asMap().get("id_" + id.toString());
+        if(!ObjectUtils.isEmpty(user)) {
+            return user;
+        }
         return sqlTestRepository.selectById(id);
+    }
+
+    @Override
+    public User addUser(Long id, String name) {
+        User user = new User();
+        user.setId(id);
+        user.setName(name);
+        userRepository.save(user);
+        caffeineCache.put("id_" + id, user);
+        return user;
     }
 
     @Cacheable(value = "sql", key = "#root.methodName + ':' + #id")
     public User getUser(Long id) {
+        User user = (User) caffeineCache.asMap().get(id.toString());
+        if(!ObjectUtils.isEmpty(user)) {
+            return user;
+        }
         Optional<User> userOptional = userRepository.findById(id);
         return userOptional.isPresent() ? userOptional.get() : new User();
     }

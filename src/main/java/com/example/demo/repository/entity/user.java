@@ -14,7 +14,6 @@ public class User implements Serializable {
      * 用户ID
      */
     @Id
-    @GeneratedValue
     @Column(name = "id")
     public Long id;
 

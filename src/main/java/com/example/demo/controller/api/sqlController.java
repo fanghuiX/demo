@@ -25,6 +25,13 @@ public class SqlController {
     }
 
     @ApiOperation(value = "根据用户id获取用户")
+    @RequestMapping(value = "/user/add", method = RequestMethod.GET)
+    public User addUser(@RequestParam(value = "id") Long id,
+                        @RequestParam(value = "name") String name) {
+        return sqlService.addUser(id, name);
+    }
+
+    @ApiOperation(value = "根据用户id获取用户")
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public User getUser(@PathVariable(value = "id") Long id) {
         return sqlService.getUser(id);

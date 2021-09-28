@@ -6,6 +6,8 @@ public interface SqlService {
 
     User getSql(Long id);
 
+    User addUser(Long id, String name);
+
     User getUser(Long id);
 
     Long getCount(Long id);
