@@ -18,22 +18,25 @@ server.tomcat.uri-encoding: UTF-8
 mybatis.configLocations:  classpath:mybatis-config.xml
 mybatis.mapper-locations: classpath:mapper/*.xml
 
+# memcached
+memcache.ip: 101.132.134.250
+memcache.port: 11211
 
-# RedisÊý¾Ý¿âË÷Òý£¨Ä¬ÈÏÎª0£©
+# Redisï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Îª0ï¿½ï¿½
 spring.redis.database: 0
-# Redis·þÎñÆ÷µØÖ·
+# Redisï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·
 spring.redis.host: 127.0.0.1
-# Redis·þÎñÆ÷Á¬½Ó¶Ë¿Ú
+# Redisï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶Ë¿ï¿½
 spring.redis.port: 6379
-# Redis·þÎñÆ÷Á¬½ÓÃÜÂë£¨Ä¬ÈÏÎª¿Õ£©
+# Redisï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¨Ä¬ï¿½ï¿½Îªï¿½Õ£ï¿½
 spring.redis.password:
-# Á¬½Ó³Ø×î´óÁ¬½ÓÊý£¨Ê¹ÓÃ¸ºÖµ±íÊ¾Ã»ÓÐÏÞÖÆ£© Ä¬ÈÏ 8
+# ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¸ï¿½Öµï¿½ï¿½Ê¾Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ Ä¬ï¿½ï¿½ 8
 spring.redis.lettuce.pool.max-active: 8
-# Á¬½Ó³Ø×î´ó×èÈûµÈ´ýÊ±¼ä£¨Ê¹ÓÃ¸ºÖµ±íÊ¾Ã»ÓÐÏÞÖÆ£© Ä¬ÈÏ -1
+# ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½Ê±ï¿½ä£¨Ê¹ï¿½Ã¸ï¿½Öµï¿½ï¿½Ê¾Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ Ä¬ï¿½ï¿½ -1
 spring.redis.lettuce.pool.max-wait: -1
-# Á¬½Ó³ØÖÐµÄ×î´ó¿ÕÏÐÁ¬½Ó Ä¬ÈÏ 8
+# ï¿½ï¿½ï¿½Ó³ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¬ï¿½ï¿½ 8
 spring.redis.lettuce.pool.max-idle: 8
-# Á¬½Ó³ØÖÐµÄ×îÐ¡¿ÕÏÐÁ¬½Ó Ä¬ÈÏ 0
+# ï¿½ï¿½ï¿½Ó³ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¬ï¿½ï¿½ 0
 spring.redis.lettuce.pool.min-idle: 0
 
 # rabbitmq
@@ -42,17 +45,17 @@ spring.rabbitmq.port: 5672
 spring.rabbitmq.username: admin
 spring.rabbitmq.password: 198813
 spring.rabbitmq.virtual-host: /
-## ÊÖ¶¯Ó¦´ð
+## ï¿½Ö¶ï¿½Ó¦ï¿½ï¿½
 spring.rabbitmq.listener.simple.acknowledge-mode: manual
-## Ïû·Ñ¶Ë×îÐ¡²¢·¢Êý
+## ï¿½ï¿½ï¿½Ñ¶ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #spring.rabbitmq.listener.simple.concurrency: 5
-## Ïû·Ñ¶Ë×î´ó²¢·¢Êý
+## ï¿½ï¿½ï¿½Ñ¶ï¿½ï¿½ï¿½ó²¢·ï¿½ï¿½ï¿½
 #spring.rabbitmq.listener.simple.max-concurrency: 10
 
 # kakfa
 spring:
   kafka:
-    bootstrap-servers: 101.132.134.250:9092  #bootstrap-servers£ºÁ¬½ÓkafkaµÄµØÖ·£¬¶à¸öµØÖ·ÓÃ¶ººÅ·Ö¸ô
+    bootstrap-servers: 101.132.134.250:9092  #bootstrap-serversï¿½ï¿½ï¿½ï¿½ï¿½ï¿½kafkaï¿½Äµï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½Ã¶ï¿½ï¿½Å·Ö¸ï¿½
     listener:
       missing-topics-fatal: false
     consumer:
@@ -65,8 +68,8 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       auto-offset-reset: earliest
     producer:
-      retries: 0 #ÈôÉèÖÃ´óÓÚ0µÄÖµ£¬¿Í»§¶Ë»á½«·¢ËÍÊ§°ÜµÄ¼ÇÂ¼ÖØÐÂ·¢ËÍ
-      batch-size: 16384 #µ±½«¶à¸ö¼ÇÂ¼±»·¢ËÍµ½Í¬Ò»¸ö·ÖÇøÊ±£¬ Producer ½«³¢ÊÔ½«¼ÇÂ¼×éºÏµ½¸üÉÙµÄÇëÇóÖÐ¡£ÕâÓÐÖúÓÚÌáÉý¿Í»§¶ËºÍ·þÎñÆ÷¶ËµÄÐÔÄÜ¡£Õâ¸öÅäÖÃ¿ØÖÆÒ»¸öÅú´ÎµÄÄ¬ÈÏ´óÐ¡£¨ÒÔ×Ö½ÚÎªµ¥Î»£©¡£16384ÊÇÈ±Ê¡µÄÅäÖÃ
-      buffer-memory: 33554432 #Producer ÓÃÀ´»º³åµÈ´ý±»·¢ËÍµ½·þÎñÆ÷µÄ¼ÇÂ¼µÄ×Ü×Ö½ÚÊý£¬33554432ÊÇÈ±Ê¡ÅäÖÃ
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer #¹Ø¼ü×ÖµÄÐòÁÐ»¯Àà
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer #ÖµµÄÐòÁÐ»¯Àà
+      retries: 0 #ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½0ï¿½ï¿½Öµï¿½ï¿½ï¿½Í»ï¿½ï¿½Ë»á½«ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ÜµÄ¼ï¿½Â¼ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½
+      batch-size: 16384 #ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ Producer ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ËºÍ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½Ü¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½Ä¬ï¿½Ï´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½Îªï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½16384ï¿½ï¿½È±Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+      buffer-memory: 33554432 #Producer ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½33554432ï¿½ï¿½È±Ê¡ï¿½ï¿½ï¿½ï¿½
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer #ï¿½Ø¼ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer #Öµï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½

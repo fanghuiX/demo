@@ -3,6 +3,7 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.entity.User;
 import com.example.demo.service.SqlService;
 import com.github.benmanes.caffeine.cache.Cache;
+import net.spy.memcached.MemcachedClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -23,9 +24,16 @@ public class SqlServiceImpl implements SqlService {
     @Autowired
     Cache<String, Object> caffeineCache;
 
+    @Autowired
+    private MemcachedClient memcachedClient;
+
     // @Cacheable(value = "sql", key = "#root.methodName + ':' + #id")
     public User getSql(Long id) {
         User user = (User) caffeineCache.asMap().get("id_" + id.toString());
+        if(!ObjectUtils.isEmpty(user)) {
+            return user;
+        }
+        user = (User) memcachedClient.get("id_" + id.toString());
         if(!ObjectUtils.isEmpty(user)) {
             return user;
         }
@@ -39,6 +47,7 @@ public class SqlServiceImpl implements SqlService {
         user.setName(name);
         userRepository.save(user);
         caffeineCache.put("id_" + id, user);
+        memcachedClient.add("id_" + id, 999, user);
         return user;
     }
 
