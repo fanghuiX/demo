@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 @Slf4j
 @Service
-public class MQListener {
+public class MQListenerService {
 
     @RabbitListener(queues = {"test_queue"})
     public void listenMessageFromTestQueue(@Header(AmqpHeaders.CHANNEL) Channel channel, User msg, Message message) throws IOException {
