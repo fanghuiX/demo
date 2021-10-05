@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * Created by author on 2021/9/28 15:59
  */
 @Configuration
-public class CacheConfig {
+public class CaffeineCacheConfig {
 
     @Bean
     public Cache<String, Object> caffeineCache() {

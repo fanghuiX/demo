@@ -3,6 +3,8 @@ package com.example.demo.controller.api;
 import com.example.demo.kafka.KafkaProducer;
 import com.example.demo.repository.entity.User;
 import com.example.demo.mq.MQSendService;
+import com.example.demo.rpc.RpcTestFramework;
+import com.example.demo.service.HelloService;
 import com.example.demo.service.SqlService;
 import com.example.demo.service.TestPointcutService;
 import javassist.NotFoundException;
@@ -22,11 +24,26 @@ public class DemoController {
     private SqlService sqlService;
     @Autowired
     private KafkaProducer kafkaProducer;
+    @Autowired
+    private HelloService helloService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getTest() {
         testPointcutService.castStringToInteger("111");
-        return "HELLO, WORLD!!!!!!";
+        helloService.test();
+        return "HELLO, SERVER1!!!!!!";
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public void test() {
+        SqlService service = null;
+        try {
+            service = RpcTestFramework.refer(SqlService.class, "127.0.0.1", 2333);
+            User user = service.getUser(1L);
+            return;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @RequestMapping(value = "/mqTest/{id}", method = RequestMethod.GET)

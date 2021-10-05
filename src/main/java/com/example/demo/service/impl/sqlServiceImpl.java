@@ -63,6 +63,7 @@ public class SqlServiceImpl implements SqlService {
 
     @Cacheable(value = "sql", key = "#root.methodName + ':' + #id")
     public Long getCount(Long id) {
+        Integer.toString(123, 7);
         return userRepository.countById(id);
     }
 }
