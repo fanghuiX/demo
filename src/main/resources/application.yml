@@ -73,3 +73,6 @@ spring:
       buffer-memory: 33554432 #Producer ��������ȴ������͵��������ļ�¼�����ֽ�����33554432��ȱʡ����
       key-serializer: org.apache.kafka.common.serialization.StringSerializer #�ؼ��ֵ����л���
       value-serializer: org.apache.kafka.common.serialization.StringSerializer #ֵ�����л���
+
+# https://cloud.tencent.com/developer/article/1699801
+jwt.secret: fanghui
